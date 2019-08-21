@@ -13,9 +13,24 @@ public class Shop {
     private Integer id;
     private String adress;
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getAdress() {
+        return adress;
+    }
+
+    public void setAdress(String adress) {
+        this.adress = adress;
+    }
 
     @Override
     public String toString() {
-        return "Shop{" + "id=" + id + ", adress='" + adress + '\'' + '}';
+        return "Shop{" + "id= " + id + ", adress= '" + adress + '\'' + '}';
     }
 }
