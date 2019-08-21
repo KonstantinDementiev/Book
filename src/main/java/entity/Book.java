@@ -9,6 +9,14 @@ public class Book {
     private Integer id;
     private String name;
 
+    @ManyToOne
+    @JoinColumn(name = "shop_id")
+    private Shop shop;
+
+    public Book() {
+    }
+
+
     public Integer getId() {
         return id;
     }
@@ -25,7 +33,15 @@ public class Book {
         this.name = name;
     }
 
-//    @Override
+    public Shop getShop() {
+        return shop;
+    }
+
+    public void setShop(Shop shop) {
+        this.shop = shop;
+    }
+
+    //    @Override
 //    public boolean equals(Object o) {
 //        if (this == o) return true;
 //        if (o == null || getClass() != o.getClass()) return false;
