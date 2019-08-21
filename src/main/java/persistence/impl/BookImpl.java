@@ -48,11 +48,16 @@ public class BookImpl implements BookRepository {
     public void add() {
 
         session.beginTransaction();
+        Book book = new Book();
+
         System.out.println("Insert name of new book: ");
         scanner = new Scanner(System.in);
-        String newName = scanner.nextLine();
-        Book book = new Book();
-        book.setName(newName);
+        book.setName(scanner.nextLine());
+
+        System.out.println("Insert shop_id of new book, use \",\" :");
+        scanner = new Scanner(System.in);
+        //book.setShops(scanner.nextInt());
+
         session.save(book);
         session.getTransaction().commit();
         scanner.close();

@@ -1,6 +1,8 @@
 package entity;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Book {
@@ -9,9 +11,13 @@ public class Book {
     private Integer id;
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "shop_id")
-    private Shop shop;
+//    @ManyToOne
+//    @JoinColumn(name = "shop_id")
+
+    @ManyToMany
+    @JoinTable(name = "kit", joinColumns = {@JoinColumn(name = "book_id")}, inverseJoinColumns = {@JoinColumn(name = "shop_id")})
+    private Set<Shop> shops = new HashSet<Shop>();
+
 
     public Book() {
     }
@@ -33,12 +39,12 @@ public class Book {
         this.name = name;
     }
 
-    public Shop getShop() {
-        return shop;
+    public Set<Shop> getShops() {
+        return shops;
     }
 
-    public void setShop(Shop shop) {
-        this.shop = shop;
+    public void setShops(Set<Shop> shops) {
+        this.shops = shops;
     }
 
     //    @Override
@@ -61,8 +67,9 @@ public class Book {
 //        return result;
 //    }
 
+
     @Override
     public String toString() {
-        return "Book{" + "id= " + id + ", name= '" + name + '\'' + '}';
+        return "Book{ " + "id = " + id + ", name = '" + name + '\'' + ", shops = " + shops.toString() + " }";
     }
 }

@@ -1113,23 +1113,19 @@
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
     <table id="279" parent="2" name="book"/>
-    <table id="280" parent="2" name="shop"/>
-    <column id="281" parent="279" name="id">
+    <table id="280" parent="2" name="kit"/>
+    <table id="281" parent="2" name="shop"/>
+    <column id="282" parent="279" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="282" parent="279" name="name">
+    <column id="283" parent="279" name="name">
       <Position>2</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="283" parent="279" name="shop_id">
-      <Position>3</Position>
-      <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <index id="284" parent="279" name="idbook_UNIQUE">
@@ -1146,30 +1142,63 @@
       <ColNames>id</ColNames>
       <UnderlyingIndexName>idbook_UNIQUE</UnderlyingIndexName>
     </key>
-    <column id="287" parent="280" name="id">
+    <column id="287" parent="280" name="shop_id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="288" parent="280" name="book_id">
+      <Position>2</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="289" parent="280" name="FK1pxrd9v88ybjnkasnf2hchkxl">
+      <ColNames>book_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="290" parent="280" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>shop_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="291" parent="280" name="FKba6mfqhihfpsgj7l0xt6s0g7l">
+      <ColNames>shop_id</ColNames>
+      <RefSchemaName>books</RefSchemaName>
+      <RefTableName>shop</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="292" parent="280" name="FK1pxrd9v88ybjnkasnf2hchkxl">
+      <ColNames>book_id</ColNames>
+      <RefSchemaName>books</RefSchemaName>
+      <RefTableName>book</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="293" parent="281" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="288" parent="280" name="adress">
+    <column id="294" parent="281" name="adress">
       <Position>2</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="289" parent="280" name="idshop_UNIQUE">
+    <index id="295" parent="281" name="idshop_UNIQUE">
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="290" parent="280" name="PRIMARY">
+    <key id="296" parent="281" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="291" parent="280" name="idshop_UNIQUE">
+    <key id="297" parent="281" name="idshop_UNIQUE">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>idshop_UNIQUE</UnderlyingIndexName>
     </key>

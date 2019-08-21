@@ -12,7 +12,9 @@ public class Shop {
     private Integer id;
     private String adress;
 
-    @OneToMany (mappedBy = "shop")
+    //@OneToMany (mappedBy = "shop")
+
+    @ManyToMany(mappedBy = "shops")
     private Set<Book> books = new HashSet<Book>();
 
 
@@ -32,8 +34,16 @@ public class Shop {
         this.adress = adress;
     }
 
+    public Set<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(Set<Book> books) {
+        this.books = books;
+    }
+
     @Override
     public String toString() {
-        return "Shop{" + "id= " + id + ", adress= '" + adress + '\'' + '}';
+        return String.valueOf(id);
     }
 }
