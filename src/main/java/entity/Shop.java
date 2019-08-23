@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class Shop {
+public class Shop extends Model{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,11 +17,12 @@ public class Shop {
     @ManyToMany(mappedBy = "shops")
     private Set<Book> books = new HashSet<Book>();
 
-
+    @Override
     public Integer getId() {
         return id;
     }
 
+    @Override
     public void setId(Integer id) {
         this.id = id;
     }

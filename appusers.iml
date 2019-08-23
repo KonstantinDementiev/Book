@@ -71,5 +71,6 @@
     <orderEntry type="library" name="Maven: org.reactivestreams:reactive-streams:1.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate:hibernate-ehcache:5.4.4.Final" level="project" />
     <orderEntry type="library" name="Maven: net.sf.ehcache:ehcache:2.10.6" level="project" />
+    <orderEntry type="library" name="Maven: org.jetbrains:annotations-java5:17.0.0" level="project" />
   </component>
 </module>

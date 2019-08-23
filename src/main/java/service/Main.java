@@ -10,10 +10,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        BookImpl book = new BookImpl();
-        book.crud();
-
-
+        BookImpl bookImpl = new BookImpl();
+        bookImpl.delBookByName();
 
     }
 }

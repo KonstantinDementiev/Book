@@ -5,23 +5,15 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class Book {
+public class Book extends Model{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
 
-//    @ManyToOne
-//    @JoinColumn(name = "shop_id")
-
     @ManyToMany
     @JoinTable(name = "kit", joinColumns = {@JoinColumn(name = "book_id")}, inverseJoinColumns = {@JoinColumn(name = "shop_id")})
     private Set<Shop> shops = new HashSet<Shop>();
-
-
-    public Book() {
-    }
-
 
     public Integer getId() {
         return id;
@@ -47,29 +39,5 @@ public class Book {
         this.shops = shops;
     }
 
-    //    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//
-//        Book book = (Book) o;
-//
-//        if (id != book.id) return false;
-//        if (name != null ? !name.equals(book.name) : book.name != null) return false;
-//
-//        return true;
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        int result = id;
-//        result = 31 * result + (name != null ? name.hashCode() : 0);
-//        return result;
-//    }
 
-
-    @Override
-    public String toString() {
-        return "Book{ " + "id = " + id + ", name = '" + name + '\'' + ", shops = " + shops.toString() + " }";
-    }
 }
