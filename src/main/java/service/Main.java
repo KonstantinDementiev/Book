@@ -2,7 +2,8 @@ package service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import persistence.impl.BookImpl;
+import persistence.impl.ActuatorImpl;
+import persistence.impl.ValveImpl;
 
 public class Main {
 
@@ -10,8 +11,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-        BookImpl bookImpl = new BookImpl();
-        bookImpl.delBookByName();
+        ActuatorImpl actuatorImpl = new ActuatorImpl();
+        ValveImpl valveImpl = new ValveImpl();
+
+        valveImpl.findAllValve();
 
     }
 }

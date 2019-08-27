@@ -15,7 +15,7 @@ import java.util.Scanner;
 public class ModelImpl {
 
     private static List<Model> models = new ArrayList<Model>();
-    private static final Logger LOG = LoggerFactory.getLogger(BookImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ActuatorImpl.class);
     private Scanner scanner;
     private Session session;
 
@@ -45,9 +45,9 @@ public class ModelImpl {
     public void add(Model model) {
         session = HibernateSessionFactory.getSessionFactory().openSession();
         session.beginTransaction();
-        System.out.println("Insert name of new " + model.getClass().getSimpleName() + ":");
+        System.out.println("Insert article of new " + model.getClass().getSimpleName() + ":");
         scanner = new Scanner(System.in);
-        model.setName(scanner.nextLine());
+        model.setArticle(scanner.nextLine());
         session.save(model);
         session.getTransaction().commit();
         scanner.close();
@@ -77,7 +77,7 @@ public class ModelImpl {
         System.out.println("Insert name for updating: ");
         scanner = new Scanner(System.in);
         String updateName = scanner.nextLine();
-        Query queryUpdate = session.createQuery("FROM Book WHERE name = :paramName");
+        Query queryUpdate = session.createQuery("FROM Actuator WHERE article = :paramName");
         queryUpdate.setParameter("paramName", updateName);
         models = queryUpdate.list();
         System.out.println("Insert new name: ");
@@ -85,7 +85,7 @@ public class ModelImpl {
         String rename = scanner.nextLine();
 
         for (Model modelUp : models) {
-            modelUp.setName(rename);
+            modelUp.setArticle(rename);
             session.update(modelUp);
         }
         session.getTransaction().commit();
